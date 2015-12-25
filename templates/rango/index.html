@@ -1,0 +1,27 @@
+<html>
+    {% load static %}
+
+    <head>
+        <title>Rango</title>
+    </head>
+
+    <body>
+        <h1>Rango says...</h1>
+        {% if categorys %}
+            <ul>
+                {% for category in categorys %}
+                <li>
+                    <a href="category/{{ category.slug}}"> {{ category.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>there are no categories present.</strong>
+        {% endif %}
+        hello world!<strong>{{boldmessage}}</strong><br/>
+        <a href="about/">About</a><br/>
+        <img src="{% static "images/logo.jpg"%}" alt="Picture of Rango" /> 
+    </body>
+
+
+</html>
