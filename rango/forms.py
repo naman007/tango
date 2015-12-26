@@ -16,7 +16,7 @@ class CategoryForm(forms.ModelForm):
 
 class PageForm(forms.ModelForm):
     title=forms.CharField(max_length=128, help_text="please enter the category name.")
-    views =forms.IntegerField(widget=forms.HiddenInput(),initial=0)
+    views =forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     url = forms.URLField(max_length=200, help_text="please enter the URL of the page")
 
     class Meta:
