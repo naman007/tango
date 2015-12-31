@@ -1,4 +1,5 @@
 <html>
+<<<<<<< HEAD
 
     <head>
         <title>Rango - {% block title %}How to Tango with Django!{% endblock %}</title>
@@ -28,10 +29,55 @@
         
         
         </div>
+=======
+    <head>
+        <title>-{% block title %}How to tango with django{% endblock %}</title>
+    </head>
+
+    <body>
+        <div>
+            {% block body_block %}{% endblock %}
+        </div> 
+    
+    <hr /> 
+
+    <div>
+        <ul>
+            {% if user.is_authenticated %}
+                <li><a href="/rango/restricted/">restricted page</a></li>
+                <li><a href="/rango/logout/">Logout</a></li>
+                <li><a href="/rango/add_category/">add a new category</a></li>
+            {% else %}
+                <li><a href="/rango/register/">register here</a></li>
+                <li><a href="/rango/login/">login</a></li>
+            {% endif %} 
+                <li><a href="/rango/about/">about</a></li>
+
+
+        
+        
+        </ul>
+    
+    
+    </div>
+    
+    
+>>>>>>> dev
     
     </body>
 
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+>>>>>>> dev
 </html>
