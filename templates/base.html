@@ -13,15 +13,15 @@
     <div>
         <ul>
             {% if user.is_authenticated %}
-                <li><a href="/rango/restricted/">restricted page</a></li>
-                <li><a href="/rango/logout/">Logout</a></li>
-                <li><a href="/rango/add_category/">add a new category</a></li>
+            <li><a href="{% url 'restricted' %}">restricted page</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'add_category' %}">add a new category</a></li>
             {% else %}
-                <li><a href="/rango/register/">register here</a></li>
-                <li><a href="/rango/login/">login</a></li>
+            <li><a href="{% url 'register' %}">register here</a></li>
+            <li><a href="{% url 'login' %}">login</a></li>
             {% endif %} 
-                <li><a href="/rango/about/">about</a></li>
-
+            <li><a href="{% url 'about' %}">about</a></li>
+            <li><a href="{% url 'index' %}">back to index</a></li>
 
         
         

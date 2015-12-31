@@ -7,7 +7,8 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in ,you see this!")
+    context_dict = {'test':'if you login you can see this'}
+    return render(request,'rango/restricted.html',context_dict)
 
 def user_logout(request):
     logout(request)
