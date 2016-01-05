@@ -6,6 +6,7 @@
         <a href="{% url 'add_category' %}">Add a New category</a><br />
         {% else %}
         <h1>Rango says...</h1>
+        <p> visits: {{ visits }}<p>
         {% endif %}
         {% if categorys %}
             <ul>
