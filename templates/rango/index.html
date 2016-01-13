@@ -2,20 +2,42 @@
 {% load staticfiles %}
 {% block body_block %}
         {% if user.is_authenticated %}
+        <div class="well well-lg">
         <h1>hello {{ user.username }}</h1><br />
-        <a href="{% url 'add_category' %}">Add a New category</a><br />
+        </div>
         {% else %}
+        <div class="well well-lg">
         <h1>Rango says...</h1>
         <p> visits: {{ visits }}<p>
+        </div>
         {% endif %}
         {% if categorys %}
-            <ul>
+        <div class='panel panel-primary'>
+            <div class='panel-heading'>
+                <h3 class='panel-title'>Categorys</h3>
+            <ul class='list-group'>
                 {% for category in categorys %}
-                <li>
+                <li class='list-group-item'>
                     <a href="{% url 'category' category.slug %}"> {{ category.name }}</a>
                 </li>
                 {% endfor %}
-            </ul>
+                </ul>
+                </div>
+                </div>
+
+        <div class='panel panel-primary'>
+            <div class='panel-heading'>
+                <h3 class='panel-title'>Pages</h3>
+                <ul class='list-group'>
+                    {% for page_info in page %}
+                    <li class='list-group-item'>
+                        <a href="{{ page_info.url }}"> {{ page_info.title }}</a>
+                    </li>
+                    {% endfor %}
+                    </ul>
+                    </div>
+                    </div>
+
         {% else %}
             <strong>there are no categories present.</strong>
         {% endif %}

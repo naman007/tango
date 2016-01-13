@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^$',include('rango.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^rango/', include('rango.urls')),
+    #url(r'^accounts/', include('registration.backends.simple.urls')),
 ]
 
 if settings.DEBUG:
