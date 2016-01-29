@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{% load staticfiles %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{% static "js/rango-ajax.js" %}"></script>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -36,9 +39,9 @@
           <ul class="nav navbar-nav navbar-right">
                 <li><a href="{% url 'index' %}">Home</a></li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
-                        <li><a href="{% url 'logout' %}?next=/rango/">Logout</a></li>
-                        <li><a href="{% url 'add_category' %}">Add a New Category</a></li>
+                        <li><a href="{% url 'restricted' %}">Restricted</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                        <li><a href="{% url 'add_category' %}">Add a New Cat</a></li>
                     {% else %}
                         <li><a href="{% url 'register' %}">Register Here</a></li>
                         <li><a href="{% url 'login' %}">Login</a></li>
@@ -52,10 +55,13 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-                {% block side_block %}{% endblock %}
+            <div class="col-sm-3 col-md-2 sidebar">
+                {% block side_block %}
+                {% load rango_extras %}
+                {% get_category_list category %}
+                {% endblock %}
+            </div>
 
-        </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
            <div>
                 {% block body_block %}{% endblock %}
